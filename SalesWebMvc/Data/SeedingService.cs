@@ -31,6 +31,8 @@ namespace SalesWebMvc.Data
 
 
             Seller s1 = new Seller(1, "Bob brown", "bob@gmail.com", 1000.0, d1);
+            Seller s2 = new Seller(2, "bruno", "boddddb@gmail.com", 1000.0, d1);
+
             //Seller s2 = new Seller(2, "Alice Green", "alice@gmail.com", new DateTime(1985, 7, 15), 1500.0, d2);
             //Seller s3 = new Seller(3, "John Doe", "john@gmail.com", new DateTime(1990, 1, 30), 2000.0, d3);
             //Seller s4 = new Seller(4, "Maria White", "maria@gmail.com", new DateTime(1992, 11, 25), 1700.0, d4);
@@ -50,7 +52,7 @@ namespace SalesWebMvc.Data
 
             _context.Department.AddRange(d1, d2, d3, d4);
             // _context.Seller.AddRange(s1, s2, s3, s4,s5,s6,s7);
-            _context.Seller.AddRange(s1);
+            _context.Seller.AddRange(s1, s2);
             //_context.SalesRecord.AddRange(r1, r2, r3, r4, r5, r6, r7);
             _context.SalesRecord.AddRange(r1);
 
