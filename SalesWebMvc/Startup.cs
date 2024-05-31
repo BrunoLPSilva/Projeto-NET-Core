@@ -12,6 +12,8 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using SalesWebMvc.Data;
 using SalesWebMvc.Models;
+using SalesWebMvc.Services;
+using System.Globalization;
 
 namespace SalesWebMvc
 {
@@ -44,11 +46,25 @@ namespace SalesWebMvc
             services.AddScoped<SeedingService>();
             //REGISTRANDO Services/SellerService
             services.AddScoped<SellerService>();
+            services.AddScoped<DepartmentService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, SeedingService seedingService)
         {
+            //formatando datas - PASSO1
+            var enUS = new CultureInfo("en-US");
+            var localizationOption = new RequestLocalizationOptions
+            {
+                DefaultRequestCulture = new Microsoft.AspNetCore.Localization.RequestCulture(enUS),
+                SupportedCultures = new List<CultureInfo> { enUS},
+                SupportedUICultures = new List<CultureInfo> { enUS }
+
+            };
+
+            app.UseRequestLocalization(localizationOption);
+            //-------------------- IR PARA MODELS/SELLER
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

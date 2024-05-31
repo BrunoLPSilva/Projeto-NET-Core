@@ -1,18 +1,18 @@
 ﻿@model SalesWebMvc.Models.ViewModels.SellerFormViewModel
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Edit";
+
 }
 
-<h2>@ViewData["Title"] </h2>
+<h2>@ViewData["Title"]</h2>
 
 <h4>Seller</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create" method="post">
-            @*mensagem para erros*@
-            <div asp-validation-summary="All" class="text-danger"></div>
+        <form asp-action="Edit" method="post">
+            <input type="hidden" asp-for="Seller.Id" />
             <div class="form-group">
                 @*seler.name porque esta referenciando no seller do viewModel*@
                 <label asp-for="Seller.Name" class="control-label"></label>
@@ -25,7 +25,6 @@
                 <label asp-for="Seller.Email" class="control-label"></label>
                 <input asp-for="Seller.Email" class="form-control" />
 
-
                 @*mensagem especifica de erro*@
                 <span asp-validation-for="Seller.Email" class="text-danger"></span>
             </div>
@@ -33,10 +32,8 @@
                 <label asp-for="Seller.BaseSalary" class="control-label"></label>
                 <input asp-for="Seller.BaseSalary" class="form-control" />
 
-
                 @*mensagem especifica de erro*@
                 <span asp-validation-for="Seller.BaseSalary" class="text-danger"></span>
-
             </div>
 
             @*Colocando dados no selected*@
@@ -46,7 +43,7 @@
                 "Name"))" class="form-control"></select>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Update" class="btn btn-default" />
             </div>
         </form>
     </div>

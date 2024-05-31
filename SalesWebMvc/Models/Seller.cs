@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -8,12 +9,25 @@ namespace SalesWebMvc.Models
     public class Seller
     {
         public int Id { get; set; }
+
+        [Required(ErrorMessage = "{0} required" )]
+        [StringLength(60, MinimumLength = 3, ErrorMessage = "Name size should be between 3 and 60")]
         public string Name  { get; set; }
+
+        [Required(ErrorMessage = "{0} required")]
         public string Email { get; set; }
 
+       // [DataType(DataType.Date)]
       //  public DateTime dtNascimento { get; set; }
+      //------------------------------------------------------------------
+        //COMO MODIFICAR UM CAMPO
+        [Display(Name = "Base Salary")]
+        [DisplayFormat(DataFormatString = "{0:F2}")]
+        [Required(ErrorMessage = "{0} required")]
+        [Range(100.0,50000.0, ErrorMessage ="{0} must be from {1} to {2}")]
         public double BaseSalary { get; set; }
 
+        
         public Department Department { get; set; }
 
         public int DepartmentId { get; set; }
