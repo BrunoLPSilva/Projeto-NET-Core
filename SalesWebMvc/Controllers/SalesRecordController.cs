@@ -1,0 +1,65 @@
+﻿using Microsoft.AspNetCore.Mvc;
+using SalesWebMvc.Services;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace SalesWebMvc.Controllers
+{
+    public class SalesRecordController : Controller
+    {
+        //IMPORTANDO SERVICO 
+        private readonly SalesRecordService _salesRecordService;
+
+        //cONSTRUTOR DO SERVIÇO
+        public SalesRecordController(SalesRecordService salesRecordService)
+        {
+            _salesRecordService = salesRecordService;
+        }
+
+        public IActionResult Index()
+        {
+            return View();
+        }
+
+        public async Task<IActionResult> SimpleSearch(DateTime? minDate, DateTime? maxDate)
+        {
+            if (!minDate.HasValue)
+            {
+                minDate = new DateTime(DateTime.Now.Year, 1, 1);
+            }
+
+            if (!maxDate.HasValue)
+            {
+                maxDate = DateTime.Now;
+            }
+            //PASSANDO ESSES IF POR VIEWDATA
+            ViewData["minDate"] = minDate.Value.ToString("yyyy-MM-dd");
+            ViewData["maxDate"] = maxDate.Value.ToString("yyyy-MM-dd");
+            //trazendo função do service
+            var result = await _salesRecordService.FindByDateAsync(minDate, maxDate);
+            return View(result);
+        }
+
+        public async Task<IActionResult> GroupingSearch(DateTime? minDate, DateTime? maxDate)
+        {
+
+            if (!minDate.HasValue)
+            {
+                minDate = new DateTime(DateTime.Now.Year, 1, 1);
+            }
+
+            if (!maxDate.HasValue)
+            {
+                maxDate = DateTime.Now;
+            }
+            //PASSANDO ESSES IF POR VIEWDATA
+            ViewData["minDate"] = minDate.Value.ToString("yyyy-MM-dd");
+            ViewData["maxDate"] = maxDate.Value.ToString("yyyy-MM-dd");
+            //trazendo função do service
+            var result = await _salesRecordService.FindByDateGroupingAsync(minDate, maxDate);
+            return View(result);
+        }
+    }
+}

@@ -17,9 +17,13 @@ namespace SalesWebMvc.Models
         [Required(ErrorMessage = "{0} required")]
         public string Email { get; set; }
 
-       // [DataType(DataType.Date)]
-      //  public DateTime dtNascimento { get; set; }
-      //------------------------------------------------------------------
+        [Required(ErrorMessage = "{0} required")]
+        [Display(Name = "Birth Date")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
+        public DateTime BirthDate { get; set; }
+
+       
         //COMO MODIFICAR UM CAMPO
         [Display(Name = "Base Salary")]
         [DisplayFormat(DataFormatString = "{0:F2}")]
@@ -39,15 +43,17 @@ namespace SalesWebMvc.Models
         {
         }
 
-        public Seller(int id, string name, string email, /*DateTime dtNascimento,*/ double baseSalary, Department department)
+        public Seller(int id, string name, string email, DateTime birthDate, double baseSalary, Department department)
         {
             Id = id;
             Name = name;
             Email = email;
-           // this.dtNascimento = dtNascimento;
+            BirthDate = birthDate;
             BaseSalary = baseSalary;
             Department = department;
         }
+       
+        
 
         //ADICIONAR VENDA NA LISTA DE VENDA
         public void AddSales(SalesRecord sr)
@@ -59,7 +65,7 @@ namespace SalesWebMvc.Models
         {
             Sales.Remove(sr);
         }
-
+        
         public double TotalSales(DateTime initial, DateTime final)
         {
             //usando lista de vendas

@@ -46,3 +46,6 @@ C:\Users\Bruno Silva\Documents\PROJETOS\ASP.NET(core)\SalesWebMvc\SalesWebMvc\ob
 C:\Users\Bruno Silva\Documents\PROJETOS\ASP.NET(core)\SalesWebMvc\SalesWebMvc\obj\Debug\netcoreapp2.1\Razor\Views\Sellers\Delete.cshtml.g.cs
 C:\Users\Bruno Silva\Documents\PROJETOS\ASP.NET(core)\SalesWebMvc\SalesWebMvc\obj\Debug\netcoreapp2.1\Razor\Views\Sellers\Details.cshtml.g.cs
 C:\Users\Bruno Silva\Documents\PROJETOS\ASP.NET(core)\SalesWebMvc\SalesWebMvc\obj\Debug\netcoreapp2.1\Razor\Views\Sellers\Edit.cshtml.g.cs
+C:\Users\Bruno Silva\Documents\PROJETOS\ASP.NET(core)\SalesWebMvc\SalesWebMvc\obj\Debug\netcoreapp2.1\Razor\Views\SalesRecord\Index.cshtml.g.cs
+C:\Users\Bruno Silva\Documents\PROJETOS\ASP.NET(core)\SalesWebMvc\SalesWebMvc\obj\Debug\netcoreapp2.1\Razor\Views\SalesRecord\SimpleSearch.cshtml.g.cs
+C:\Users\Bruno Silva\Documents\PROJETOS\ASP.NET(core)\SalesWebMvc\SalesWebMvc\obj\Debug\netcoreapp2.1\Razor\Views\SalesRecord\GroupingSearch.cshtml.g.cs
